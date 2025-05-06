@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traductor de Español</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Traductor de Español</h1>
+    <form method="POST" action="/">
+        <table>
+            <tr>
+                <td><label for="text_es">Español:</label></td>
+                <td><textarea id="text_es" name="text" placeholder="Escriba el texto que desea traducir"></textarea>
+                </td>
+            </tr>
+            {% if translations is defined %}
+            <tr>
+                <td><label for="text_en">Inglés:</label></td>
+                <td><textarea id="text_en" name="text_en" readonly>{{ translations['en'] }}</textarea></td>
+            </tr>
+            <tr>
+                <td><label for="text_fr">Francés:</label></td>
+                <td><textarea id="text_fr" name="text_fr" readonly>{{ translations['fr'] }}</textarea></td>
+            </tr>
+            <tr>
+                <td><label for="text_it">Italiano:</label></td>
+                <td><textarea id="text_it" name="text_it" readonly>{{ translations['it'] }}</textarea></td>
+            </tr>
+            <tr>
+                <td><label for="text_de">Alemán:</label></td>
+                <td><textarea id="text_de" name="text_de" readonly>{{ translations['de'] }}</textarea></td>
+            </tr>
+            {% endif %}
+        </table>
+        <button type="submit">Traducir</button>
+    </form>
+</div>
+</body>
+</html>
